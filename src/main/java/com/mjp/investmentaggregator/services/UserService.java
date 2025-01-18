@@ -6,7 +6,6 @@ import com.mjp.investmentaggregator.entities.User;
 import com.mjp.investmentaggregator.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
