@@ -1,5 +1,7 @@
 package com.mjp.investmentaggregator.controllers;
 
+import com.mjp.investmentaggregator.dtos.AccountResponseDTO;
+import com.mjp.investmentaggregator.dtos.CreateAccountDTO;
 import com.mjp.investmentaggregator.dtos.CreateUserDTO;
 import com.mjp.investmentaggregator.dtos.UpdateUserDTO;
 import com.mjp.investmentaggregator.entities.User;
@@ -56,4 +58,20 @@ public class UserController {
         userService.updateUserById(userId, dto);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/{userId}/accounts")
+    public ResponseEntity<Void> updateUserById(@PathVariable("userId") String userId,
+                                               @RequestBody CreateAccountDTO createAccountDTO) {
+        userService.createAccount(userId, createAccountDTO);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{userId}/accounts")
+    public ResponseEntity<List<AccountResponseDTO>> listAccounts(@PathVariable("userId") String userId) {
+
+        var accounts = userService.listAccounts(userId);
+
+        return ResponseEntity.ok(accounts);
+    }
+
 }
