@@ -22,6 +22,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Version
+    private int version;
+
     @CreationTimestamp
     private Instant creationTimestamp;
 
